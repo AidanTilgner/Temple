@@ -3,12 +3,15 @@ import { Model } from "../index.d";
 
 export type Log = { id: number; message: string; createdAt: string };
 
-export default class LogModel extends Model<Log> {
+export default class LogModel extends Model {
   name = "Log";
   tableName = "logs";
 
   constructor(db: Database) {
-    super(db);
+    super(db, {
+      name: "Log",
+      tableName: "logs",
+    });
   }
 
   createTable() {
