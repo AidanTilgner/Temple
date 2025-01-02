@@ -1,5 +1,6 @@
-import Database from "better-sqlite3";
+import { Database } from "bun:sqlite";
 import { config } from "dotenv";
+import Log from "./models/log";
 
 config();
 
@@ -9,6 +10,23 @@ if (!DB_LOCATION) {
   throw new Error("DB_LOCATION is not defined");
 }
 
+const models = {
+  Log,
+};
+
+const database = new Database(DB_LOCATION);
+
 export const getDatabase = () => {
-  return Database(DB_LOCATION);
+  return database;
+};
+
+export const initDatabase = () => {
+  const db = getDatabase();
+
+  for (const m of Object.values(models)) {
+    const model = new m(db);
+    console.info(`Creating ${model.tableName} table...`);
+    const statement = model.createTable();
+    statement.run();
+  }
 };

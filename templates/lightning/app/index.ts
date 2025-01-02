@@ -1,11 +1,15 @@
 import Express from "express";
 import { config } from "dotenv";
 import chalk from "chalk";
+import { initDatabase } from "./database/db";
+
 // Routers
 import apiRouter from "./api";
 import cors from "cors";
 
 config();
+
+initDatabase();
 
 const { PORT } = process.env;
 
