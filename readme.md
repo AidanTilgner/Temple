@@ -4,8 +4,5 @@ This is a master repository which holds various application templates for applic
 > This repository is a constant work in progress, and these templates are designed as starting points based on my own preferences.
 
 ## Templates
-Templates will be listed here, categorized, and described.
-
-**Web Apps**
-Templates for building web applications
+**Web Apps** | Templates for building web applications
 - [Lightning](./templates/lightning): A lightweight, Vite-based template for local apps and tools using React, Express, and Sqlite
