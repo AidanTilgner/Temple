@@ -39,8 +39,8 @@ app.use(
 
 app.use("/api", apiRouter);
 
+app.use("/", Express.static(path.join(process.cwd(), "public/")));
 if (process.env.NODE_ENV === "production") {
-  app.use("/", Express.static(path.join(process.cwd(), "dist/")));
   app.get("/*", (_, res) => {
     res.sendFile(path.join(process.cwd(), "dist/index.html"));
   });
