@@ -15,12 +15,12 @@ The Lightning template uses the following technologies:
 - **React-Router 7**: [docs](https://reactrouter.com/home) | because it just works
 - **Phosphor Icons**: [docs](https://github.com/phosphor-icons/react) | because it's a great icon lib
 
-Essentially what we have here is a React frontend, which uses React-Router's `BrowserRouter` and Mantine.js's component library for rapid frontend iteration. On the backend we have an Express.js app, which has an integration with a Sqlite3 database through `better-sqlite3`.
+Essentially what we have here is a React frontend, which uses React-Router's `BrowserRouter` and Mantine.js's component library for rapid frontend iteration. On the backend we have an Express.js app, which has an integration with a Sqlite3 database through `bun:sqlite`.
 
 ## Startup
 Make sure you have `degit` installed ([instructions here](https://github.com/Rich-Harris/degit)).
 
-1. Clone this template: `degit AidanTilgner/Template/templates/lightning`
+1. Clone this template: `degit AidanTilgner/Temple/templates/lightning`
 2. Install dependencies: `bun install`
 3. Modify `package.json` with your name: `name: "new project"`
 4. Copy the `.env.example` to a new file called `.env`, fill in the variables
