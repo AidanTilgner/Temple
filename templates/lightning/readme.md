@@ -10,7 +10,7 @@ Some use-cases for Lightning template include:
 The Lightning template uses the following technologies:
 - **React**: [docs](https://react.dev) | because it's what I'm used to and it's popular
 - **Express.js**: [docs](https://expressjs.com) | because it's simple, well-supported, and fast
-- **Better-Sqlite3**: [docs](https://github.com/WiseLibs/better-sqlite3) | because it's a simple set of utilities over Sqlite3
+- **Bun Sqlite**: [docs](https://bun.sh/docs/api/sqlite) | because it's a simple set of utilities over Sqlite3
 - **Mantine.js**: [docs](https://mantine.dev) | because this avoids having to define most components from scratch
 - **React-Router 7**: [docs](https://reactrouter.com/home) | because it just works
 - **Phosphor Icons**: [docs](https://github.com/phosphor-icons/react) | because it's a great icon lib
