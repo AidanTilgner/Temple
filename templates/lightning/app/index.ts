@@ -2,6 +2,7 @@ import Express from "express";
 import { config } from "dotenv";
 import chalk from "chalk";
 import { initDatabase } from "./database/db";
+import path from "path";
 
 // Routers
 import apiRouter from "./api";
@@ -18,12 +19,32 @@ if (!PORT || !Number(PORT)) {
 }
 
 const app = Express();
+app.use(Express.json());
+app.use(Express.urlencoded({ extended: true }));
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+  }),
+  (_, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept",
+    );
+    next();
+  },
+);
 
 app.use("/api", apiRouter);
 
-app.use("/*", Express.static("dist"));
+if (process.env.NODE_ENV === "production") {
+  app.use("/", Express.static(path.join(process.cwd(), "dist/")));
+  app.get("/*", (_, res) => {
+    res.sendFile(path.join(process.cwd(), "dist/index.html"));
+  });
+}
 
 app.listen(Number(PORT), () => {
   console.info(

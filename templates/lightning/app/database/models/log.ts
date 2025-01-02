@@ -1,11 +1,7 @@
 import { Database } from "bun:sqlite";
 import { Model } from "../index.d";
 
-export type Log = {
-  id: number;
-  message: string;
-  createdAt: string;
-};
+export type Log = { id: number; message: string; createdAt: string };
 
 export default class LogModel extends Model<Log> {
   name = "Log";
@@ -27,12 +23,12 @@ export default class LogModel extends Model<Log> {
     return createLogsTable;
   }
 
-  all(): Properties[] {
+  all(): Log[] {
     const getLogs = this.database.prepare(`
       SELECT * FROM logs
     `);
 
-    return getLogs.all() as Properties[];
+    return getLogs.all() as Log[];
   }
 
   create(message: string) {
@@ -51,11 +47,11 @@ export default class LogModel extends Model<Log> {
     deleteLog.run(id);
   }
 
-  find(id: number): Properties {
+  find(id: number): Log {
     const findLog = this.database.prepare(`
       SELECT * FROM logs WHERE id = ?
     `);
 
-    return findLog.get(id) as Properties;
+    return findLog.get(id) as Log;
   }
 }

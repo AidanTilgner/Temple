@@ -5,6 +5,7 @@ import {
   Divider,
   Flex,
   Grid,
+  Group,
   List,
   Text,
   Title,
@@ -12,6 +13,7 @@ import {
 import useFetch from "../hooks/useFetch";
 import { notifications } from "@mantine/notifications";
 import { Log } from "../../app/database/models/log";
+import { Link } from "react-router";
 
 export default function Home() {
   const { load: getMessage } = useFetch<undefined, string>({
@@ -44,13 +46,18 @@ export default function Home() {
             </Text>
           </Grid.Col>
           <Grid.Col span={12}>
-            <Button
-              onClick={() => {
-                getMessage();
-              }}
-            >
-              Get message
-            </Button>
+            <Group gap="md">
+              <Button
+                onClick={() => {
+                  getMessage();
+                }}
+              >
+                Get message
+              </Button>
+              <Link to="/second">
+                <Button variant="outline">Second page</Button>
+              </Link>
+            </Group>
           </Grid.Col>
           <Grid.Col span={12}>
             <Divider h="md" my="md" />

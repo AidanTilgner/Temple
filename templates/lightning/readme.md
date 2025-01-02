@@ -26,4 +26,4 @@ Make sure you have `degit` installed ([instructions here](https://github.com/Ric
 4. Copy the `.env.example` to a new file called `.env`, fill in the variables
 5. Start building! The `client/index.ts` and `index.ts` files are the entrypoints.
 6. Run `bun run dev` to start the project in development mode
-7. Run `bun run start` to start the project
+7. Run `bun run build`, then `bun run start` to start the project, make sure to set the `NODE_ENV` to production

@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev:client": "vite",
-    "build:client": "tsc && vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "start": "bun app/index.ts",
     "dev:server": "bun --watch app/index.ts",
